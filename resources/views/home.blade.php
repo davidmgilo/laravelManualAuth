@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
- Hola {{ $username }}
+ Hola {{ $username }} {{ $surname }}
 </body>
 </html>
