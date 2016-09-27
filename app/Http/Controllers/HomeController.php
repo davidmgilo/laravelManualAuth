@@ -14,6 +14,10 @@ class HomeController extends Controller
        // $data= ['username'=>'Victoria'];
         //return view('home',['username'=>'Victoria']);
         //return view('home')->with('username','Victoria');
+
+        //$user=new Usuari('Sergi','Tur');
+        // return view('home')->withUser($user);
+
         return view('home')
             ->withUsername('Victoria')
             ->withSurname('Tur');
