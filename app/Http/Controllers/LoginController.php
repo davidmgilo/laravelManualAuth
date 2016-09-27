@@ -10,6 +10,6 @@ class LoginController extends Controller
 {
     public function login()
     {
-        echo "Login called!";
+        return view('auth.login');
     }
 }
