@@ -10,6 +10,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home',['username'=>'Victoria']);
+        // $name = 'Victoria';
+       // $data= ['username'=>'Victoria'];
+        //return view('home',['username'=>'Victoria']);
+        return view('home')->with('username','Victoria');
     }
 }
