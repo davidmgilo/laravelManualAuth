@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hola', function () {
+    echo"hola!";
+}); //funcions anònimes o Closures
