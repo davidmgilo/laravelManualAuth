@@ -27,12 +27,14 @@ Auth::loginUsingId(1);
 //SOLID
 //SRP Single Responsability Principle
 //Que el codi faci només una cosa.
+//
+//Route::group(['middleware' => 'auth'] , function(){
+//    Route::get('/home','HomeController@index');
+//        //->middleware('auth');
+////El contrari es amb 'guest'
+//});
 
-Route::group(['middleware' => 'auth'] , function(){
-    Route::get('/home','HomeController@index');
-        //->middleware('auth');
-//El contrari es amb 'guest'
-});
+Route::get('/home','HomeController@index');
 
 //Route::get('/login', function (){
 //    return view('auth.login');
