@@ -29,15 +29,15 @@ class HomeController extends Controller
 //        return view('home')
 //            ->withUser($user);
 
-        $pdo = new PDO('sqlite:/home/alumne/Code/laravelManualAuth/database/database.sqlite');
-        $query = $pdo->prepare('SELECT * FROM users WHERE id=1');
-        $query->execute();
-        $row = $query->fetch();
+//        $pdo = new PDO('sqlite:/home/alumne/Code/laravelManualAuth/database/database.sqlite');
+//        $query = $pdo->prepare('SELECT * FROM users WHERE id=1');
+//        $query->execute();
+//        $row = $query->fetch();
         //dd($row);
 
-        $user = new \stdClass();
-        $user->name ="David";
+        $user= User::find(1);
+
         return view('home')
-            ->withUser($row);
+            ->withUser($user);
     }
 }
