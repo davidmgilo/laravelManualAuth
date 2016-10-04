@@ -36,7 +36,12 @@ class HomeController extends Controller
 //        $row = $query->fetch();
         //dd($row);
 
-        Auth::loginUsingId(1);
+//        Auth::loginUsingId(1);
+//        Auth::logout();
+
+
+        //Middleware
+        // S'executa enmig. Entre els usuaris i el codi
 
         if(Auth::check()){
             $user= User::find(1);
