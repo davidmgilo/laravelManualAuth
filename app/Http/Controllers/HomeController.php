@@ -13,6 +13,7 @@ class HomeController extends Controller
     {
         // $name = 'Victoria';
        // $data= ['username'=>'Victoria'];
+        //equivalent compact($user)
         //return view('home',['username'=>'Victoria']);
         //return view('home')->with('username','Victoria');
 
@@ -21,8 +22,19 @@ class HomeController extends Controller
 
         //$user = new User();
 
-        $user= User::find(1);
+//        $user= User::find(1);
+//
+//        return view('home')
+//            ->withUser($user);
 
+        $pdo = new PDO('sqlite:/home/sergi/Code/laravelManualAuth/database/database.sqlite');
+        $query = $pdo->prepare('SELECT * FROM users WHERE id=1');
+        $query->execute();
+        $row = $query->fetch();
+        dd($row);
+
+        $user = new \stdClass();
+        $user->name ="David";
         return view('home')
             ->withUser($user);
     }
