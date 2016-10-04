@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use PDO;
+
 class HomeController extends Controller
 {
     public function index()
@@ -27,15 +29,15 @@ class HomeController extends Controller
 //        return view('home')
 //            ->withUser($user);
 
-        $pdo = new PDO('sqlite:/home/sergi/Code/laravelManualAuth/database/database.sqlite');
+        $pdo = new PDO('sqlite:/home/alumne/Code/laravelManualAuth/database/database.sqlite');
         $query = $pdo->prepare('SELECT * FROM users WHERE id=1');
         $query->execute();
         $row = $query->fetch();
-        dd($row);
+        //dd($row);
 
         $user = new \stdClass();
         $user->name ="David";
         return view('home')
-            ->withUser($user);
+            ->withUser($row);
     }
 }
