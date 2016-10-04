@@ -43,17 +43,12 @@ class HomeController extends Controller
         //Middleware
         // S'executa enmig. Entre els usuaris i el codi
 
-        if(Auth::check()){
+
             $user= User::find(1);
 
             return view('home')
                 ->withUser($user);
-        }else{
-            $user= new \stdClass();
-            $user->name = "Invitado";
-            return view('home')
-                ->withUser($user);
-        }
+
 
 
 
