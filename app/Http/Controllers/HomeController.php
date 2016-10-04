@@ -49,7 +49,7 @@ class HomeController extends Controller
         // S'executa enmig. Entre els usuaris i el codi
 
 
-            $user= User::find(1);
+            $user= Auth::user();
 
             return view('home')
                 ->withUser($user);
