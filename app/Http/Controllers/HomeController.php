@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use PDO;
 
 class HomeController extends Controller
@@ -35,9 +36,21 @@ class HomeController extends Controller
 //        $row = $query->fetch();
         //dd($row);
 
-        $user= User::find(1);
+        Auth::loginUsingId(1);
 
-        return view('home')
-            ->withUser($user);
+        if(Auth::check()){
+            $user= User::find(1);
+
+            return view('home')
+                ->withUser($user);
+        }else{
+            $user= new \stdClass();
+            $user->name = "Invitado";
+            return view('home')
+                ->withUser($user);
+        }
+
+
+
     }
 }
