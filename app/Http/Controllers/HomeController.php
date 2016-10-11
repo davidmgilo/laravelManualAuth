@@ -26,7 +26,7 @@ class HomeController extends Controller
             return redirect('login');
         }
 
-      //  '{"name" : "David"}'
+      //  '{"name" : "David", "sn1" : "Martinez"}'
 
     }
 
