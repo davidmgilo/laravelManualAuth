@@ -52,8 +52,8 @@ class HomeController extends Controller
         //Opció 1: Query_String $_GET
         //dd(json_decode($_GET['user']));
         //return json_decode($_GET['user']);
-        $id = $_GET['user'];
-        return User::findOrFail($id);
+        $user = json_decode($_COOKIE['user']);
+        return $user;
 
     }
 }
