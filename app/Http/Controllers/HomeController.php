@@ -17,16 +17,29 @@ class HomeController extends Controller
     public function index()
     {
         //ESTAT SESSIÓ
-            $user = $this->getuser();
+        if ($this->userIsAuthenticated()){
+        $user = $this->getuser();
+        return view('home')
+            ->withUser($user);
+        }   else{
 
-
-            return view('home')
-                ->withUser($user);
-
-
-
+            return view('auth.login');
+        }
 
     }
+
+    private function userIsAuthenticated()
+    {
+        if (existeuseringet){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+
+
 
     private function getuser()
     {
