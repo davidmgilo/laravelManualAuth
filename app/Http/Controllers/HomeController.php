@@ -30,6 +30,7 @@ class HomeController extends Controller
 
     private function userIsAuthenticated()
     {
+        dd($_GET['user']);
         if (existeuseringet){
             return true;
         }else{
