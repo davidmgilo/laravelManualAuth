@@ -33,8 +33,8 @@ class HomeController extends Controller
     }
 
     private function setUserCookie(){
-        $user= 1;
-        setcookie('user',$user);
+        $user= User::findOrFail(1);
+        setcookie('user',$user->token);
     }
 
     private function userIsAuthenticated()
@@ -55,8 +55,8 @@ class HomeController extends Controller
         //Opció 1: Query_String $_GET
         //dd(json_decode($_GET['user']));
         //return json_decode($_GET['user']);
-        $id = $_COOKIE['user'];
-        return User::findOrFail($id);
+        $token = $_COOKIE['user'];
+        return User::where(["token" => $token ])->first();
 
     }
 }
