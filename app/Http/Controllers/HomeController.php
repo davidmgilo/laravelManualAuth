@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     private function userIsAuthenticated()
     {
-        if (isset($_GET['user'])){
+        if (isset($_COOKIE['user'])){
             return true;
         }else{
             return false;
