@@ -33,17 +33,20 @@ class HomeController extends Controller
     }
 
     private function setUserCookie(){
-        $user= User::find(1);
-        setcookie('user',json_encode($user));
+        $user= 1;
+        setcookie('user',$user);
     }
 
     private function userIsAuthenticated()
     {
-        if (isset($_COOKIE['user'])){
-            return true;
-        }else{
-            return false;
-        }
+        //Operador ternari
+       return isset($_COOKIE['user']) ? true : false;
+//
+//        if (isset($_COOKIE['user'])){
+//            return true;
+//        }else{
+//            return false;
+//        }
 
     }
 
@@ -52,8 +55,8 @@ class HomeController extends Controller
         //Opció 1: Query_String $_GET
         //dd(json_decode($_GET['user']));
         //return json_decode($_GET['user']);
-        $user = json_decode($_COOKIE['user']);
-        return $user;
+        $id = $_COOKIE['user'];
+        return User::findOrFail($id);
 
     }
 }
