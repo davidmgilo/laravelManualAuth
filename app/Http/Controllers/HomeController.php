@@ -23,7 +23,7 @@ class HomeController extends Controller
             ->withUser($user);
         }   else{
 
-            return view('auth.login');
+            return redirect('login');
         }
 
     }
