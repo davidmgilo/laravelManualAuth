@@ -12,49 +12,26 @@ use PDO;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     public function index()
     {
-        // $name = 'Victoria';
-       // $data= ['username'=>'Victoria'];
-        //equivalent compact($user)
-        //return view('home',['username'=>'Victoria']);
-        //return view('home')->with('username','Victoria');
+        //ESTAT SESSIÓ
+            $user = $this->getuser();
 
-        //$user=new Usuari('Sergi','Tur');
-        // return view('home')->withUser($user);
-
-        //$user = new User();
-
-//        $user= User::find(1);
-//
-//        return view('home')
-//            ->withUser($user);
-
-//        $pdo = new PDO('sqlite:/home/alumne/Code/laravelManualAuth/database/database.sqlite');
-//        $query = $pdo->prepare('SELECT * FROM users WHERE id=1');
-//        $query->execute();
-//        $row = $query->fetch();
-        //dd($row);
-
-//        Auth::loginUsingId(1);
-//        Auth::logout();
-
-
-        //Middleware
-        // S'executa enmig. Entre els usuaris i el codi
-
-
-            $user= Auth::user();
 
             return view('home')
                 ->withUser($user);
 
 
+
+
+    }
+
+    private function getuser()
+    {
+        //Opció 1: Query_String $_GET
+        return $_GET['user'];
 
 
     }
