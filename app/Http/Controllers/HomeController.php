@@ -26,6 +26,8 @@ class HomeController extends Controller
             return redirect('login');
         }
 
+      //  '{"name" : "David"}'
+
     }
 
     private function userIsAuthenticated()
@@ -38,13 +40,11 @@ class HomeController extends Controller
 
     }
 
-
-
-
     private function getuser()
     {
         //Opció 1: Query_String $_GET
-        return $_GET['user'];
+       // dd(json_decode($_GET['user']));
+        return json_decode($_GET['user']);
 
 
     }
