@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use PDO;
 
 class HomeController extends Controller
@@ -45,6 +46,7 @@ class HomeController extends Controller
         //Opció 1: Query_String $_GET
         //dd(json_decode($_GET['user']));
         //return json_decode($_GET['user']);
+        dd(Hash::make(1));
         $id = $_GET['user'];
         return User::findOrFail($id);
 
