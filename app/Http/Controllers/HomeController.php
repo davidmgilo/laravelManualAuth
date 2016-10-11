@@ -43,9 +43,10 @@ class HomeController extends Controller
     private function getuser()
     {
         //Opció 1: Query_String $_GET
-       // dd(json_decode($_GET['user']));
-        return json_decode($_GET['user']);
-
+        //dd(json_decode($_GET['user']));
+        //return json_decode($_GET['user']);
+        $id = $_GET['user'];
+        return User::findOrFail($id);
 
     }
 }
