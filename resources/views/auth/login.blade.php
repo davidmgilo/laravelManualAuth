@@ -20,7 +20,7 @@
             <div class="form-group">
                 Password: <input type="text" name="password" id="">
             </div>
-            <div class="row">
+            <div class="row text-center">
                 <input type="submit" value="Login" class="btn btn-primary">
             </div>
 
