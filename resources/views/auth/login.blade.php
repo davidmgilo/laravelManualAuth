@@ -10,7 +10,7 @@
 <body>
 
 <form action="/login" method="post">
-    {{ csrf_field() }}
+    <input type="hidden" name="token" value="{{csrf_token()}}">
     Usuari: <input type="text" name="user" id="">
     Password: <input type="text" name="password" id="">
     <input type="submit" value="Login">
