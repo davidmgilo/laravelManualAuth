@@ -6,6 +6,9 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LoginTest extends TestCase
 {
+    use DatabaseMigrations;
+    //S'assegura que les taules existeixin al fer un test.
+
     /**
      * A basic functional test example.
      *
@@ -19,10 +22,16 @@ class LoginTest extends TestCase
  //           ->seeElement('');
     }
 
+    protected function createTestUser(){
+       return factory(\App\User::class,1)->create();
+    }
+
     public function testLoginPostWithUserok()
     {
+        $user = $this->createTestUser();
         $this->visit('/login')
-            ->type('user', 'davidmgilo@gmail.com')
+            ->type('user', $user->name)
+            ->type('password', $user->password)
          //   ->check('terms')
             ->press('login')
             ->seePageIs('/home');
