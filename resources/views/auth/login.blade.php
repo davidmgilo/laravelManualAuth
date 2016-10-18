@@ -10,19 +10,26 @@
     <title>Document</title>
 </head>
 <body>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form action="/login" method="post">
+            <div class="form-group">
+                Usuari: <input type="text" name="user" id="">
+            </div>
+            <div class="form-group">
+                Password: <input type="text" name="password" id="">
+            </div>
+            <div class="row">
+                <input type="submit" value="Login" class="btn btn-primary">
+            </div>
 
-<form action="/login" method="post">
-    <div class="form-group">
-        Usuari: <input type="text" name="user" id="">
+        </form>
     </div>
-   <div class="form-group">
-       Password: <input type="text" name="password" id="">
-   </div>
-    <div class="row">
-        <input type="submit" value="Login" class="btn btn-primary">
-    </div>
-    
-</form>
+    <div class="col-md-4"></div>
+
+</div>
+
 
 </body>
 </html>
