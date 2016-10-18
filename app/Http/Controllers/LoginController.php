@@ -29,7 +29,7 @@ class LoginController extends Controller
             return redirect('login');
         }
 
-        if($user->password == Hash::make($request->input('password')) ){
+        if(Hash::check($request->input('password'),$user->password) ){
             return redirect('home');
         }else {
             return redirect('login');

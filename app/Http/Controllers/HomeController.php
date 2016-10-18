@@ -17,16 +17,17 @@ class HomeController extends Controller
 
     public function index()
     {
-        $this->setUserCookie();
-        //ESTAT SESSIÓ
-        if ($this->userIsAuthenticated()){
-        $user = $this->getuser();
-        return view('home')
-            ->withUser($user);
-        }   else{
-
-            return redirect('login');
-        }
+        return view('home');
+//        $this->setUserCookie();
+//        //ESTAT SESSIÓ
+//        if ($this->userIsAuthenticated()){
+//        $user = $this->getuser();
+//        return view('home')
+//            ->withUser($user);
+//        }   else{
+//
+//            return redirect('login');
+//        }
 
       //  '{"name" : "David", "sn1" : "Martinez"}'
 
