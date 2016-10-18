@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -13,6 +13,7 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
+        {{csrf_field()}}
         <form action="/login" method="post">
             <div class="form-group">
                 Usuari: <input type="text" name="user" id="">
