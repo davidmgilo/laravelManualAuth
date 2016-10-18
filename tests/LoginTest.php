@@ -11,8 +11,11 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function test()
+    public function testLoginPageShowsLoginForm()
     {
-
+        $this->visit('/login')
+            ->see('Usuari')
+            ->see('Password');
+ //           ->seeElement('');
     }
 }
