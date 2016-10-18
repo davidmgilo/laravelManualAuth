@@ -16,7 +16,7 @@
         {{csrf_field()}}
         <form action="/login" method="post">
             <div class="form-group">
-                Usuari: <input type="text" name="user" id="">
+                Email: <input type="text" name="email" id="">
             </div>
             <div class="form-group">
                 Password: <input type="text" name="password" id="">

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -13,7 +15,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login()
+    public function login(Request $request)
     {
         //Pas 1. Obtenir de la base de dades l'usuari amb email --> Model User
         // Comprovar el password:
@@ -21,7 +23,18 @@ class LoginController extends Controller
         // - Comparar amb el de la base de dades.
         // ERROR -> return to login page
         // CORRECT -> redirect to home
+        try{
+            $user = User::where(["email" => $request->input('email') ])->firstOrFail();
+        }catch (\Exception $e){
+            return redirect('login');
+        }
 
-        echo "El login se procesa aquí";
+        if($user->password == Hash::make($request->input('password')) ){
+            return redirect('home');
+        }else {
+            return redirect('login');
+        }
+
+
     }
 }
