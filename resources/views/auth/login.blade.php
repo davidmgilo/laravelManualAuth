@@ -15,7 +15,7 @@
 
     Usuari: <input type="text" name="user" id="">
     Password: <input type="text" name="password" id="">
-    <input type="submit" value="Login" class="btn">
+    <input type="submit" value="Login" class="btn btn-primary">
 </form>
 
 </body>
