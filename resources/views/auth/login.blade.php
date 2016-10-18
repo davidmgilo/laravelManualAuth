@@ -8,6 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-login form here!
+
+<form action="" method="post">
+
+</form>
+
 </body>
 </html>

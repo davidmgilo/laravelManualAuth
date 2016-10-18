@@ -40,7 +40,8 @@ Route::get('/home','HomeController@index');
 //    return view('auth.login');
 //});
 
-Route::get('/login', 'LoginController@login');
+Route::get('/login', 'LoginController@showLoginForm');
+Route::post('/login', 'LoginController@login');
 
 Route::get('/register', 'RegisterController@register');
 //Route::get('/register', function (){
