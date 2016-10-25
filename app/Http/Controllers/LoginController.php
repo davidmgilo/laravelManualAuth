@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ManualAuth\Guard;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,17 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
+    protected $guard;
+
+    /**
+     * LoginController constructor.
+     * @param $guard
+     */
+    public function __construct(Guard $guard)
+    {
+        $this->guard = $guard;
+    }
+
     public function showLoginForm()
     {
         return view('auth.login');
@@ -25,6 +37,16 @@ class LoginController extends Controller
         // Delegar intent d'autentificació a algú altre i tenir en compte
         // que poden haver-hi diferents Users Providers (SQL, ldap...)
 
+        $credentials = $request->only(['email','password']);
+
+        if($this->guard->validate($credentials)){
+         //OK TODO
+            $this->guard->setUser();
+            return redirect('home');
+        }
+
+        return redirect('login');
+
         //OK ->
         //    crear la cookie (cookieguard) o parameterguard,
         //    redirect to home
@@ -35,7 +57,7 @@ class LoginController extends Controller
     private function validateLogin($request)
     {
         $this->validate($request, [
-            'email' => 'required', 'password' => 'required',
+            'email' => 'email|required', 'password' => 'required',
         ]);
 
     }
