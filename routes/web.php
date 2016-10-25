@@ -36,6 +36,8 @@ Route::get('/login', function () {
 
 //PAS 2. User providers
 
+Route::get('/login', 'LoginController@showLoginForm');
+Route::post('/login', 'LoginController@login');
 
 
 //
