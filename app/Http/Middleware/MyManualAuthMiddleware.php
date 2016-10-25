@@ -3,9 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\ManualAuth\Guard;
-use App\ManualAuth\ManualGuardByIdParameter;
 use Closure;
-use App\ManualAuth\ManualGuard;
 
 class MyManualAuthMiddleware
 {
