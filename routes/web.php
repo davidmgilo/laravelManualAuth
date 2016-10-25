@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//$user= User::findOrFail(1);
-//setcookie('user',$user->token);
+$user= User::findOrFail(1);
+setcookie('user',$user->token);
 
 //CONTAINER. Conté tota la aplicació de Laravel
 //$this->app->bind(
