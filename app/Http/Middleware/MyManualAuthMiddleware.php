@@ -15,7 +15,8 @@ class MyManualAuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if($request->has('id')){
+        $manualguard = new ManualGuard();
+        if($manualguard->check()){
             return $next($request);
         }
         return redirect('login');
