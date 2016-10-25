@@ -15,10 +15,12 @@ class ManualGuard
      */
     public function __construct()
     {
+
     }
 
     public function check()
     {
-        
+        $token = $_COOKIE['user'];
+        return User::where(["token" => $token ])->first();
     }
 }

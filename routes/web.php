@@ -11,11 +11,15 @@
 |
 */
 
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+$user= User::findOrFail(1);
+setcookie('user',$user->token);
 
 //PAS 1: Middleware. Com protegir pàgines.
 Route::group(['middleware' => 'manualauth'], function () {
