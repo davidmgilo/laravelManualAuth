@@ -18,6 +18,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         // Primer pas. Validate login form -> Required fields, response with error, etc.
+        $this->validateLogin($request);
 
         //Check too many attempts TODO
 
@@ -30,7 +31,15 @@ class LoginController extends Controller
         //NOT OK -> redirect to login with error messages
 
     }
-        //Pas 1. Obtenir de la base de dades l'usuari amb email --> Model User
+
+    private function validateLogin($request)
+    {
+        $this->validate($request, [
+            'email' => 'required', 'password' => 'required',
+        ]);
+
+    }
+    //Pas 1. Obtenir de la base de dades l'usuari amb email --> Model User
         // Comprovar el password:
         // - Hash del password proporcionat (bcrypt).
         // - Comparar amb el de la base de dades.
