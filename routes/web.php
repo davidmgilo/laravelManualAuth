@@ -18,17 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-$user= User::findOrFail(1);
-setcookie('user',$user->token);
+//$user= User::findOrFail(1);
+//setcookie('user',$user->token);
 
-//CONTAINER. Conté tota la aplicació de Laravel
-//$this->app->bind(
-//    \App\ManualAuth\Guard::class, \App\ManualAuth\ParameterGuard::class
-//);
 
-$this->app->bind(
-    \App\ManualAuth\Guard::class, \App\ManualAuth\CookieGuard::class
-);
 
 //PAS 1: Middleware. Com protegir pàgines.
 Route::group(['middleware' => 'manualauth'], function () {
