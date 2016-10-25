@@ -17,33 +17,43 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hola', function () {
-    echo"hola!";
-}); //funcions anònimes o Closures
+//PAS 1: Middleware. Com protegir pàgines.
 
-Auth::logout();
-Auth::loginUsingId(1);
+Route::get('/tasques', function () {
+    return view('tasques');
+});
 
-//SOLID
-//SRP Single Responsability Principle
-//Que el codi faci només una cosa.
+
+
+
 //
-//Route::group(['middleware' => 'auth'] , function(){
-//    Route::get('/home','HomeController@index');
-//        //->middleware('auth');
-////El contrari es amb 'guest'
-//});
-
-Route::get('/home','HomeController@index');
-
-//Route::get('/login', function (){
-//    return view('auth.login');
-//});
-
-Route::get('/login', 'LoginController@showLoginForm');
-Route::post('/login', 'LoginController@login');
-
-Route::get('/register', 'RegisterController@register');
+//Route::get('/hola', function () {
+//    echo"hola!";
+//}); //funcions anònimes o Closures
+//
+////Auth::logout();
+////Auth::loginUsingId(1);
+//
+////SOLID
+////SRP Single Responsability Principle
+////Que el codi faci només una cosa.
+////
+////Route::group(['middleware' => 'auth'] , function(){
+////    Route::get('/home','HomeController@index');
+////        //->middleware('auth');
+//////El contrari es amb 'guest'
+////});
+//
+//Route::get('/home','HomeController@index');
+//
+////Route::get('/login', function (){
+////    return view('auth.login');
+////});
+//
+//Route::get('/login', 'LoginController@showLoginForm');
+//Route::post('/login', 'LoginController@login');
+//
+//Route::get('/register', 'RegisterController@register');
 //Route::get('/register', function (){
 //    return view('auth.register');
 //});
