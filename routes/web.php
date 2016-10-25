@@ -18,9 +18,10 @@ Route::get('/', function () {
 });
 
 //PAS 1: Middleware. Com protegir pàgines.
-
-Route::get('/tasques', function () {
-    return view('tasques');
+Route::group(['middleware' => 'manualauth'], function () {
+    Route::get('/tasques', function () {
+        return view('tasques');
+    });
 });
 
 
