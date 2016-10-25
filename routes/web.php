@@ -10,9 +10,9 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
+//
 use App\User;
-use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,6 +34,7 @@ Route::get('/login', function () {
     return view('login');
 });
 
+//PAS 2. User providers
 
 
 
