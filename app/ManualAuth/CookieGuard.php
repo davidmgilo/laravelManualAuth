@@ -7,7 +7,7 @@ namespace App\ManualAuth;
  * Date: 25/10/16
  * Time: 20:08
  */
-class ManualGuard implements Guard
+class CookieGuard implements Guard
 {
 
     /**

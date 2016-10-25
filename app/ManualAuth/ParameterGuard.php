@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
  * Date: 25/10/16
  * Time: 20:08
  */
-class ManualGuardByIdParameter implements Guard
+class ParameterGuard implements Guard
 {
     protected $request;
 
     /**
-     * ManualGuardByIdParameter constructor.
+     * ParameterGuard constructor.
      * @param $request
      */
     public function __construct(Request $request)

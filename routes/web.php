@@ -22,7 +22,13 @@ Route::get('/', function () {
 //setcookie('user',$user->token);
 
 //CONTAINER. Conté tota la aplicació de Laravel
-$this->app;
+//$this->app->bind(
+//    \App\ManualAuth\Guard::class, \App\ManualAuth\ParameterGuard::class
+//);
+
+$this->app->bind(
+    \App\ManualAuth\Guard::class, \App\ManualAuth\CookieGuard::class
+);
 
 //PAS 1: Middleware. Com protegir pàgines.
 Route::group(['middleware' => 'manualauth'], function () {
