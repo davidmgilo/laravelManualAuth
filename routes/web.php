@@ -24,6 +24,10 @@ Route::group(['middleware' => 'manualauth'], function () {
     });
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
+
 
 
 

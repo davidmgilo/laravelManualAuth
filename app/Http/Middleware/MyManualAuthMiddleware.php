@@ -15,6 +15,9 @@ class MyManualAuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if($request->has('id')){
+            return $next($request);
+        }
+        return redirect('login');
     }
 }
