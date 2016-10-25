@@ -13,7 +13,7 @@ class MyManualAuthMiddleware
      * MyManualAuthMiddleware constructor.
      * @param $manualguard
      */
-    public function __construct($manualguard)
+    public function __construct(ManualGuard $manualguard)
     {
         $this->manualguard = $manualguard;
     }
