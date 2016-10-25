@@ -22,4 +22,14 @@ class CookieGuard implements Guard
     {
         return isset($_COOKIE['user']) ? true : false;
     }
+
+    public function validate(array $credentials)
+    {
+       return $this->provider->validate($credentials);
+    }
+
+    public function setUser($user)
+    {
+        // TODO: Implement setUser() method.
+    }
 }
