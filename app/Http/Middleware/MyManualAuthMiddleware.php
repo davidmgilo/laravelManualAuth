@@ -7,6 +7,18 @@ use App\ManualAuth\ManualGuard;
 
 class MyManualAuthMiddleware
 {
+    protected $manualguard;
+
+    /**
+     * MyManualAuthMiddleware constructor.
+     * @param $manualguard
+     */
+    public function __construct($manualguard)
+    {
+        $this->manualguard = $manualguard;
+    }
+
+
     /**
      * Handle an incoming request.
      *
@@ -16,8 +28,7 @@ class MyManualAuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $manualguard = new ManualGuard();
-        if($manualguard->check()){
+        if($this->manualguard->check()){
             return $next($request);
         }
         return redirect('login');

@@ -20,7 +20,6 @@ class ManualGuard
 
     public function check()
     {
-        $token = $_COOKIE['user'];
-        return User::where(["token" => $token ])->first();
+        return isset($_COOKIE['user']) ? true : false;
     }
 }
