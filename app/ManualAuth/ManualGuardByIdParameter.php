@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
  * Date: 25/10/16
  * Time: 20:08
  */
-class ManualGuardByIdParameter
+class ManualGuardByIdParameter implements Guard 
 {
     protected $request;
 
