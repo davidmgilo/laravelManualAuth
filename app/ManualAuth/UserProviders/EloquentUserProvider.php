@@ -5,7 +5,6 @@ namespace App\ManualAuth\UserProviders;
 
 use App\User;
 use Hash;
-use Session;
 
 class EloquentUserProvider implements UserProvider
 {

@@ -42,7 +42,7 @@ class LoginController extends Controller
 
         if($this->guard->validate($credentials)){
          //OK TODO
-            $this->guard->setUser();
+//            $this->guard->setUser();
             return redirect('home');
         }
 
