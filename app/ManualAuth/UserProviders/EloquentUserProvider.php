@@ -22,6 +22,7 @@ class EloquentUserProvider implements UserProvider
         if(Hash::check($credentials['password'],$user->password) ){
             return redirect('home');
         }else {
+            Session::flash('error',["Password incorrecte"]);
             return redirect('login');
         }
     }
