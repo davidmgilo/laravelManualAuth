@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
+use Session;
 
 class LoginController extends Controller
 {
@@ -45,6 +46,7 @@ class LoginController extends Controller
             return redirect('home');
         }
 
+        Session::flash('error',["Login incorrecte"]);
         return redirect('login');
 
         //OK ->

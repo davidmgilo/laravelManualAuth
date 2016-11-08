@@ -15,15 +15,13 @@ class EloquentUserProvider implements UserProvider
         try{
             $user = User::where(["email" => $credentials['email'] ])->firstOrFail();
         }catch (\Exception $e){
-            Session::flash('error',["Usuari no trobat a la base de dades"]);
-            return redirect('login');
+            return false;
         }
 
         if(Hash::check($credentials['password'],$user->password) ){
-            return redirect('home');
+            return true;
         }else {
-            Session::flash('error',["Password incorrecte"]);
-            return redirect('login');
+            return false;
         }
     }
 }
