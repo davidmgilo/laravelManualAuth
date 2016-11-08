@@ -1,6 +1,8 @@
 <?php
 
 namespace App\ManualAuth;
+use App\ManualAuth\UserProviders\UserProvider;
+
 /**
  * Created by PhpStorm.
  * User: alumne
@@ -11,14 +13,14 @@ class CookieGuard implements Guard
 {
     protected $provider;
 
-//    /**
-//     * CookieGuard constructor.
-//     * @param $provider
-//     */
-//    public function __construct(UserProvider $provider)
-//    {
-//        $this->provider = $provider;
-//    }
+    /**
+     * CookieGuard constructor.
+     * @param $provider
+     */
+    public function __construct(UserProvider $provider)
+    {
+        $this->provider = $provider;
+    }
 
 
     public function check()
@@ -28,7 +30,7 @@ class CookieGuard implements Guard
 
     public function validate(array $credentials)
     {
-//       return $this->provider->validate($credentials);
+       return $this->provider->validate($credentials);
     }
 
     public function setUser($user)
