@@ -46,7 +46,7 @@ class LoginController extends Controller
             return redirect('home');
         }
 
-        Session::flash('errors',["Login incorrecte"]);
+        Session::flash('errors',collect(["Login incorrecte"]));
         return redirect('login');
 
         //OK ->
