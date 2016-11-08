@@ -32,4 +32,10 @@ class EloquentUserProvider implements UserProvider
             return false;
         }
     }
+
+    public function createUser($credentials)
+    {
+
+
+    }
 }
