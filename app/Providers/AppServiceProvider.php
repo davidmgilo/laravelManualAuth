@@ -18,9 +18,9 @@ class AppServiceProvider extends ServiceProvider
 //    \App\ManualAuth\Guard::class, \App\ManualAuth\ParameterGuard::class
 //);
 
-        $this->app->bind(
-            \App\ManualAuth\Guard::class, config('manualauth.guard')
-        );
+//        $this->app->bind(
+//            \App\ManualAuth\Guard::class, config('manualauth.guard')
+//        );
     }
 
     /**
