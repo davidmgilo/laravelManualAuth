@@ -35,6 +35,6 @@ class CookieGuard implements Guard
 
     public function setUser($user)
     {
-        // TODO: Implement setUser() method.
+        setcookie('user',$user->token);
     }
 }

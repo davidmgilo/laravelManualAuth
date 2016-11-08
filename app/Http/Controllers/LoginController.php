@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ManualAuth\Guard;
+use App\ManualAuth\UserProviders\UserProvider;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -14,14 +15,19 @@ class LoginController extends Controller
 {
     protected $guard;
 
+    protected $userprovider;
+
     /**
      * LoginController constructor.
      * @param $guard
+     * @param $userprovider
      */
-    public function __construct(Guard $guard)
+    public function __construct(Guard $guard, UserProvider $userprovider)
     {
         $this->guard = $guard;
+        $this->userprovider = $userprovider;
     }
+
 
     public function showLoginForm()
     {
@@ -42,7 +48,7 @@ class LoginController extends Controller
 
         if($this->guard->validate($credentials)){
          //OK TODO
-//            $this->guard->setUser();
+            $this->guard->setUser($this->userprovider->getUserByCredentials($credentials));
             return redirect('home');
         }
 
