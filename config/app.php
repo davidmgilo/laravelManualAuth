@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
 
-        //
+        App\Providers\ManualAuthServiceProvider::class,
 
         /*
          * Application Service Providers...
