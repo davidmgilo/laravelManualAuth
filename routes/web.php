@@ -42,6 +42,9 @@ Route::get('/login', function () {
 Route::get('/login', 'LoginController@showLoginForm');
 Route::post('/login', 'LoginController@login');
 
+Route::get('/register', 'RegisterController@showRegisterForm');
+Route::post('/register', 'RegisterController@register');
+
 
 //
 //Route::get('/hola', function () {
