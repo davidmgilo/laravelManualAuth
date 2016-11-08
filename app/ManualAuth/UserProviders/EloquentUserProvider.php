@@ -13,6 +13,10 @@ class EloquentUserProvider implements UserProvider
     {
         $user = $this->getUserByCredentials($credentials);
 
+        if(!$user){
+            return false;
+        }
+
         if(Hash::check($credentials['password'],$user->password) ){
             return true;
         }else {

@@ -22,8 +22,8 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        {{csrf_field()}}
         <form action="/login" method="post">
+            {{csrf_field()}}
             <div class="form-group">
                 Email: <input type="text" name="email" id="">
             </div>
