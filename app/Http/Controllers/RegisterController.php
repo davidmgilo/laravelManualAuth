@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ManualAuth\Guard;
 use App\ManualAuth\UserProviders\UserProvider;
 use Illuminate\Http\Request;
 
@@ -11,8 +12,11 @@ class RegisterController extends Controller
 {
     protected $userprovider;
 
-    public function __construct(UserProvider $userprovider)
+    protected $guard;
+
+    public function __construct(UserProvider $userprovider, Guard $guard)
     {
+        $this->guard = $guard;
         $this->userprovider = $userprovider;
     }
 
@@ -25,13 +29,16 @@ class RegisterController extends Controller
     {
         $this->validateRegister($request);
         $credentials = $request->only(['name','email','password']);
-        $this->userprovider->createUser($credentials);
+        $user = $this->userprovider->createUser($credentials);
+        $this->guard->setUser($user);
+        return redirect('home');
+
     }
 
     private function validateRegister($request)
     {
         $this->validate($request,[
-             'nom'=> 'required', 'email' => 'email|required|unique:users', 'password' => 'required|confirmed',
+             'name'=> 'required', 'email' => 'email|required|unique:users', 'password' => 'required|confirmed',
         ]);
     }
 }
