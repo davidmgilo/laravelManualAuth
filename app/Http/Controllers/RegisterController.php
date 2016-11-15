@@ -31,7 +31,7 @@ class RegisterController extends Controller
     private function validateRegister($request)
     {
         $this->validate($request,[
-             'nom'=> 'required', 'email' => 'email|required', 'password' => 'required|confirmed',
+             'nom'=> 'required', 'email' => 'email|required|unique:users', 'password' => 'required|confirmed',
         ]);
     }
 }
