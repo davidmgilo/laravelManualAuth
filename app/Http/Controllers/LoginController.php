@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ManualAuth\Guard;
 use App\ManualAuth\UserProviders\UserProvider;
 use App\User;
+use Cookie;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -72,8 +73,8 @@ class LoginController extends Controller
 
     public function logout()
     {
-        \Cookie::forget('user');
-        return redirect ('login');
+//        \Cookie::forget('user');
+        return redirect ('login')->withCookie(Cookie::forget('user'));
     }
 
     //Pas 1. Obtenir de la base de dades l'usuari amb email --> Model User
