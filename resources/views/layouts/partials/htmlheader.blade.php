@@ -6,4 +6,5 @@
     <title>
         @yield('htmlheader_title','Your title here')
     </title>
+    <link rel="stylesheet" href="css/app.css">
 </head>
