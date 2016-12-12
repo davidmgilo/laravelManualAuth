@@ -5,5 +5,12 @@
 @endsection
 
 @section('main-content')
-    Hola
+    <div class="row text-center">
+        Hola
+    </div>
+    <form action="/logout" method="get">
+    <div class="row text-center">
+        <input type="submit" value="Logout" class="btn btn-primary">
+    </div>
+    </form>
 @endsection
