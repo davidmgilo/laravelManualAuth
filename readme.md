@@ -58,13 +58,6 @@ Or:
 $ php artisan serve
 ```
 
-## Testing
-
-Through PHPUnit:
-
-```
-$ phpunit
-```
 
 ## Contact
 
