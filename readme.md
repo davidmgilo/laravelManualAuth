@@ -6,7 +6,7 @@
 Clone the repository via github:
 
 ```
-$ git clone https://github.com/davidmgilo/todosBackend.git
+$ git clone https://github.com/davidmgilo/laravelManualAuth.git
 ```
 
 Install the dependencies:
