@@ -28,7 +28,7 @@
                 Email: <input type="text" name="email" id="">
             </div>
             <div class="form-group">
-                Password: <input type="text" name="password" id="">
+                Password: <input type="password" name="password" id="">
             </div>
             <div class="row text-center">
                 <input type="submit" value="Login" class="btn btn-primary">
