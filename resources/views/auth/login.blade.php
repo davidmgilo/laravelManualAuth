@@ -37,6 +37,11 @@
         </form>
     </div>
     <div class="col-md-4"></div>
+    <form action="/register" method="get">
+        <div class="row text-center">
+            <input type="submit" value="Register" class="btn btn-primary">
+        </div>
+    </form>
 
 </div>
 
